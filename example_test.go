@@ -7,5 +7,5 @@ func TestHelloWorld(t *testing.T) {
 }
 
 func TestHelloWorld2(t *testing.T) {
-	// t.Error("Test has not passed :(")
+	t.Error("Test has not passed :(")
 }
