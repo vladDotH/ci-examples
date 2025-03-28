@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
-	var str = "world"
+	var str string
+	str = "world"
 	fmt.Println("Hello", str)
 }
