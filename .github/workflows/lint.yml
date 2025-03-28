@@ -18,11 +18,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: GO_VERSION
+          go-version: ${{ GO_VERSION }}
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v7
         with:
-          version: GOLANGCI_LINT_VERSION
+          version: ${{ GOLANGCI_LINT_VERSION }}
 
       - uses: actions/github-script@v7
         with:
