@@ -1,0 +1,30 @@
+name: tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit:
+    strategy:
+      matrix:
+        go-version: [1.22.x, 1.23.x]
+        os: [ubuntu, windows]
+    env:
+      OS: ${{ matrix.os }}-latest
+      GO: ${{ matrix.go-version }}
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+          cache: true
+      
+      - name: Run tests
+        run: go test -race -coverprofile coverage.txt -covermode atomic -v
