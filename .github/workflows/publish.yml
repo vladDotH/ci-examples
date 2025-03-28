@@ -12,8 +12,12 @@ jobs:
   release-linux:
     env:
       GOOS: linux
-    
+
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
 
     steps:
       - name: Checkout code
@@ -39,6 +43,10 @@ jobs:
       GOOS: windows
   
     runs-on: windows-latest
+
+    permissions:
+      contents: write
+
 
     steps:
       - name: Checkout code
